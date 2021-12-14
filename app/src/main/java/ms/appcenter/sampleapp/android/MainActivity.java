@@ -32,10 +32,10 @@ public class MainActivity extends AppCompatActivity {
             new PushActivity()
     };
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_root);
+   @Override
+protected void onCreate(Bundle savedInstanceState) {
+        AppCenter.start(getApplication(), "<7d041ab3-e090-490a-bcfc-153dc1710707>",
+                Analytics.class, Crashes.class);
 
         // Initialize SDK
         if (!BuildConfig.APPCENTER_APP_SECRET.equals("")) {
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                     Analytics.class, Crashes.class, Distribute.class);
         } else {
             // Otherwise use the hardcoded string value here
-            AppCenter.start(getApplication(), "<APP SECRET HERE>",
+            AppCenter.start(getApplication(), "<7d041ab3-e090-490a-bcfc-153dc1710707>",
                     Analytics.class, Crashes.class, Distribute.class);
         }
 
